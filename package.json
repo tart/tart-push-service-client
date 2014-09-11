@@ -1,0 +1,14 @@
+{
+    "name": "tart-push-service-client",
+    "description": "A helper library which interacts easly with tart push services.",
+    "version": "0.1.0",
+    "repository": {
+        "url": "GITHUB_LINK"
+    },
+    "main": "index.js",
+    "author": "Deniz Gurkaynak <deniz.gurkaynak@startup.kitchen>",
+    "copyright"  : "Copyright (c) 2014 Startup Kitchen. All rights reserved.",
+    "dependencies": {
+        "request": "2.42.0"
+    }
+}
