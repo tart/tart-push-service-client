@@ -66,8 +66,8 @@ PushServiceHelper.prototype.request_ = function(data, opt_callback) {
  */
 PushServiceHelper.prototype.upsertUser = function(userId, userData, opt_callback) {
     this.request_({
-        url: '/user/' + userId,
-        method: 'PUT',
+        url: '/user/' + (userId ? userId : ''),
+        method: (userId ? 'PUT' : 'POST'),
         json: userData
     }, opt_callback);
 };
