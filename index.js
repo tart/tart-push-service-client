@@ -45,9 +45,9 @@ PushServiceHelper.prototype.request_ = function(data, opt_callback) {
 
     request(options, function(err, response, body) {
         // "err" is not working, check status code manually.
-        var isError = (response.statusCode < 200) || (response.statusCode >= 300);
+        var isError = (!response) ||(response.statusCode < 200) || (response.statusCode >= 300);
 
-        if (response.statusCode == 401)
+        if (!!response && response.statusCode == 401)
             console.log('Push service authentication error: Please check you application name and whether this ' +
                 'server\'s IP adress is added to application whitelist ip addresses.');
 
@@ -66,8 +66,8 @@ PushServiceHelper.prototype.request_ = function(data, opt_callback) {
  */
 PushServiceHelper.prototype.upsertUser = function(userId, userData, opt_callback) {
     this.request_({
-        url: '/user/' + userId,
-        method: 'PUT',
+        url: '/user/' + (userId ? userId : ''),
+        method: (userId ? 'PUT' : 'POST'),
         json: userData
     }, opt_callback);
 };
