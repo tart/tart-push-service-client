@@ -111,14 +111,16 @@ PushServiceHelper.prototype.deleteDeviceFromUser = function(userId, deviceToken,
  *                                just string if user locale is not important.
  *                                Ex: { en: "Message", tr: "Mesaj" }
  *                                Ex: "Message"
+ * @param {Object|string} payload An object or string that contains the payload.
  * @param {Function=} opt_callback Optional callback.
  */
-PushServiceHelper.prototype.send = function(userIds, message, opt_callback) {
+PushServiceHelper.prototype.send = function(userIds, message, payload, opt_callback) {
     this.request_({
         url: '/message',
         method: 'POST',
         json: {
             message: message,
+            payload: payload
             userIds: userIds
         }
     }, opt_callback);
@@ -131,14 +133,16 @@ PushServiceHelper.prototype.send = function(userIds, message, opt_callback) {
  *                                just string if user locale is not important.
  *                                Ex: { en: "Message", tr: "Mesaj" }
  *                                Ex: "Message"
+ * @param {Object|string} payload An object or string that contains the payload.
  * @param {Function=} opt_callback Optional callback.
  */
-PushServiceHelper.prototype.sendAll = function(message, opt_callback) {
+PushServiceHelper.prototype.sendAll = function(message, payload, opt_callback) {
     this.request_({
         url: '/message',
         method: 'POST',
         json: {
-            message: message
+            message: message,
+            payload: payload
         }
     }, opt_callback);
 };
