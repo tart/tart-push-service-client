@@ -120,7 +120,7 @@ PushServiceHelper.prototype.send = function(userIds, message, payload, opt_callb
         method: 'POST',
         json: {
             message: message,
-            payload: payload
+            payload: payload,
             userIds: userIds
         }
     }, opt_callback);
